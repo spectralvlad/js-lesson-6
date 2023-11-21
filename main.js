@@ -1,18 +1,16 @@
-while (true) {
-  let userInput = prompt("Введіть будь-яке число:");
-
-  if (userInput === null) {
-    break; // якщо користувач натиснув "Скасувати", виходимо з гри
-  }
-
-  let number = parseFloat(userInput);
+function guessNumber() {
+  const input = prompt("Введіть будь-яке число:");
+  const number = parseFloat(input);
 
   if (isNaN(number)) {
-    alert("Тільки числа, будь ласка!");
+    console.log("Тільки числа, будь ласка!");
+    guessNumber(); // Рекурсивний виклик функції для повторного запиту числа
   } else if (number >= 123) {
-    alert("Wow, you've ended this endless cycle!");
-    break;
+    console.log("Wow, you've ended this endless cycle!");
   } else {
-    alert("Should continue");
+    console.log("Should continue");
+    guessNumber(); // Рекурсивний виклик функції для продовження гри
   }
 }
+
+guessNumber(); // Початок гри
